@@ -1,0 +1,23 @@
+def verify(message, key, signature):
+    message_value = 0
+    key_value = 0
+    for char in message:
+        if char.isalpha():
+            if char.islower():
+                message_value += (ord(char) - ord("a") + 1)
+            elif char.isupper():
+                message_value += (ord(char) - ord("A") + 27)
+        #print(message_value)
+    
+    for char in key:
+        if char.isalpha():
+            if char.islower():
+                key_value += (ord(char) - ord("a") + 1)
+            elif char.isupper():
+                key_value += (ord(char) - ord("A") + 27)
+    if message_value + key_value == signature:
+        return True
+    else:
+        return False
+
+print(verify("foo", "bar", 57),verify("foo", "bar", 54),verify("freeCodeCamp", "Rocks", 238),verify("Is this valid?", "No", 210),verify("Is this valid?", "Yes", 233),verify("Check out the freeCodeCamp podcast,", "in the mobile app", 514))
