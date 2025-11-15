@@ -1,0 +1,31 @@
+#PYTHON
+from datetime import date
+
+def days_until_weekend(date_string):
+    day = date.fromisoformat(date_string).weekday()
+    weekend = 5 - day
+    if day == 5 or day == 6:
+        return "It's the weekend!"
+    elif weekend == 1:
+        return f"{weekend} day until the weekend."
+    else:
+        return f"{weekend} days until the weekend."
+
+print(days_until_weekend("2025-11-14"), days_until_weekend("2025-01-01"), days_until_weekend("2025-12-06"), days_until_weekend("2026-01-27"), days_until_weekend("2026-09-07"), days_until_weekend("2026-11-29"))
+
+
+//JAVASCRIPT
+function daysUntilWeekend(dateString) {
+    const day = new Date(dateString.replace(/-/g, '\/'));
+    const weekend = 6 - day.getDay();
+    if (day.getDay() == 0 || day.getDay() == 6) {
+      return "It's the weekend!"
+    } else if (weekend == 1) {
+        return `${weekend} day until the weekend.`
+    } else {
+      return `${weekend} days until the weekend.`
+    }
+
+}
+
+console.log(daysUntilWeekend("2025-11-14"), daysUntilWeekend("2025-01-01"), daysUntilWeekend("2025-12-06"), daysUntilWeekend("2026-01-27"), daysUntilWeekend("2026-09-07"), daysUntilWeekend("2026-11-29"))
