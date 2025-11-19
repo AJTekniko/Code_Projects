@@ -1,0 +1,22 @@
+#PYTHON
+def one_hundred(chars):
+    target_length = 100
+    num_repeats = (target_length + len(chars) - 1) // len(chars)
+
+    repeated_string = chars * num_repeats
+
+    return repeated_string[:target_length]
+
+print (one_hundred("One hundred "))
+
+
+//JAVASCRIPT
+function oneHundred(chars) {
+  let targetLength = 100;
+  
+  const repetitions = Math.ceil(targetLength / chars.length);
+  const repeatedString = chars.repeat(repetitions);
+  return repeatedString.slice(0, targetLength);
+}
+
+console.log(oneHundred("One hundred "))
